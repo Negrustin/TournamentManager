@@ -6,6 +6,7 @@ import ru.netology.domain.Player;
 import ru.netology.exceptions.NotRegisteredException;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class GameTest {
@@ -15,11 +16,7 @@ public class GameTest {
     Player player3 = new Player(3, "Name3", 70);
     Player player4 = new Player(4, "Name4", 60);
 
-    @Test
-    public void registered() {
 
-
-    }
 
     @Test
     public void firstPlayerIsWinnRound() {
@@ -86,8 +83,11 @@ public class GameTest {
         game.register(player1);
         game.register(player2);
 
-        List<Player> expected = Arrays.asList(player1, player2);
-        List<Player> actual = game.getPlayersList();
+        HashMap<String,Player> expected = new HashMap<>();
+        expected.put("Name1",player1);
+        expected.put("Name2",player2);
+
+        HashMap<String,Player> actual  = game.getPlayersList();
 
         Assertions.assertEquals(expected, actual);
     }
