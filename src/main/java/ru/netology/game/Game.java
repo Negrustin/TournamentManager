@@ -18,7 +18,6 @@ public class Game {
     }
 
     public int round(String playerName1, String playerName2) {
-        int result = 0;
         if (findByName(playerName1) == null){
             throw new NotRegisteredException("Player " + playerName1 + " is not registered");
         }
